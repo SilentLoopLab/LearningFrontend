@@ -1,6 +1,6 @@
 export const BasketItem = ({ basket, onIncrease, onDecrease, onDelete }) => {
   return (
-    <>
+    <tr>
       <td>{basket.title}</td>
       <td>${basket.price}</td>
       <td>{basket.quantity}</td>
@@ -10,6 +10,6 @@ export const BasketItem = ({ basket, onIncrease, onDecrease, onDelete }) => {
         <button onClick={() => onDecrease(basket.id)}>-</button>
         <button onClick={() => onDelete(basket.id)}>x</button>
       </td>
-    </>
+    </tr>
   );
 };

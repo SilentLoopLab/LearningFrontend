@@ -14,15 +14,13 @@ export const Basket = ({ basket, onIncrease, onDecrease, onDelete }) => {
       </thead>
       <tbody>
         {basket.map((item) => (
-          <tr>
-            <BasketItem
-              key={item.id}
-              basket={item}
-              onIncrease={onIncrease}
-              onDecrease={onDecrease}
-              onDelete={onDelete}
-            />
-          </tr>
+          <BasketItem
+            key={item.id}
+            basket={item}
+            onIncrease={onIncrease}
+            onDecrease={onDecrease}
+            onDelete={onDelete}
+          />
         ))}
       </tbody>
     </table>
