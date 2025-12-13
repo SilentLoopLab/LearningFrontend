@@ -1,0 +1,248 @@
+/* ============================================
+   CSS APPROACH:
+   - Modern card-based design with soft shadows
+   - Centered layout with max-width container
+   - Responsive grid for timers (desktop: multi-column, mobile: single column)
+   - Smooth transitions and hover effects on all interactive elements
+   - Color scheme: primary blues with accent colors for actions
+   - Timer cards show countdown prominently with action buttons below
+   - Running timers have distinct visual state vs paused
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* App Title */
+.TitleOfApp {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.5px;
+}
+
+/* Create New Timer Button */
+.newTimer {
+  display: block;
+  margin: 0 auto 40px;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.newTimer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.newTimer:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Timer Container */
+.uniqTimer {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 0 auto 24px;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.uniqTimer:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Timer Countdown Display */
+.uniqTimer> :first-child {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #667eea;
+  text-align: center;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  min-width: 120px;
+}
+
+/* Buttons Container */
+.buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttons button {
+  flex: 1;
+  min-width: 100px;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+}
+
+/* Delete Button */
+.buttons button:nth-child(1) {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.buttons button:nth-child(1):hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.buttons button:nth-child(1):active {
+  transform: translateY(0);
+  background: #b91c1c;
+}
+
+/* Duplicate Button */
+.buttons button:nth-child(2) {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.buttons button:nth-child(2):hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.buttons button:nth-child(2):active {
+  transform: translateY(0);
+  background: #1d4ed8;
+}
+
+/* Pause/Continue Button */
+.buttons button:nth-child(3) {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.buttons button:nth-child(3):hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.buttons button:nth-child(3):active {
+  transform: translateY(0);
+  background: #047857;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .TitleOfApp {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .newTimer {
+    padding: 14px 32px;
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .uniqTimer {
+    padding: 24px;
+    max-width: 100%;
+  }
+
+  .uniqTimer> :first-child {
+    font-size: 3rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buttons button {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+
+  .TitleOfApp {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+
+  .newTimer {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .uniqTimer {
+    padding: 20px;
+  }
+
+  .uniqTimer> :first-child {
+    font-size: 2.5rem;
+  }
+
+  .buttons button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Accessibility */
+button:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
