@@ -1,0 +1,29 @@
+body {
+  display:  flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-family: sans-serif;
+}
+
+.calendar {
+  width: 280px;
+  text-align: center;
+}
+
+.days,.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.days div {
+  font-weight: bold;
+}
+
+.dates div {
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.today {
+  background: #fad093;
+}

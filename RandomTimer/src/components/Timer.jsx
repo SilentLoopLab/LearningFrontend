@@ -1,4 +1,4 @@
-import './components.css';
+import './components.css';a
 
 export const Timer = ({ timer, onDelete, onDuplicate, onPause }) => {
   return (
