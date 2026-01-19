@@ -2,24 +2,24 @@ import { useOutletContext } from "react-router-dom";
 import type { IContext } from "../../../types/utility";
 import { useRef } from "react";
 import { Axios } from "../../../config/axios";
-import { Search } from "./helpers";
-
+import { Search } from "./helpers/Search";
+import { Image } from "./helpers/Image";
 export const Profile = () => {
     const { user, setAccount } = useOutletContext<IContext>();
     const image = useRef<HTMLInputElement | null>(null);
     const handleUpload = () => {
         if (image.current) {
-        const selectedFile = image.current?.files?.[0];
-        if (selectedFile) {
-            const form = new FormData();
-            form.append("profile-pic", selectedFile);
-            Axios.patch<{picture: string}>("/account/avatar", form)
-                .then((response) => {
-                    setAccount({...user, avatar: response.data.picture})
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+            const selectedFile = image.current?.files?.[0];
+            if (selectedFile) {
+                const form = new FormData();
+                form.append("profile-pic", selectedFile);
+                Axios.patch<{ picture: string }>("/account/avatar", form)
+                    .then((response) => {
+                        setAccount({ ...user, avatar: response.data.picture });
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
             }
         }
     };
@@ -39,11 +39,8 @@ export const Profile = () => {
                         <div className="relative group">
                             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
                             <div className="relative">
-                                <img
-                                    src={
-                                        user.avatar ? `http://localhost:4002/${user.avatar}` :
-                                        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
-                                    }
+                                <Image 
+                                    src={user.avatar}
                                     onClick={() => image.current?.click()}
                                     alt="Profile"
                                     className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-slate-800 shadow-2xl object-cover ring-4 ring-indigo-500/30 group-hover:ring-indigo-400/50 transition-all duration-300"
@@ -140,7 +137,7 @@ export const Profile = () => {
                     </div>
                 </div>
             </div>
-            
+
             <Search />
 
             {/* Bio Section */}
@@ -163,7 +160,7 @@ export const Profile = () => {
                     </div>
                     <h2 className="text-2xl font-bold text-white">About</h2>
                 </div>
-                
+
                 {user.bio ? (
                     <p className="text-gray-300 text-lg leading-relaxed">
                         {user.bio}
