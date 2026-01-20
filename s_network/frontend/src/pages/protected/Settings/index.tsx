@@ -2,7 +2,10 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import type { IContext } from "../../../types/utility";
 import { Axios } from "../../../config/axios";
 import { Image } from "../profile/helpers/Image";
+import { useState } from "react";
+import { BioAdd } from "./helpers/BioAdd";
 export const Settings = () => {
+    const [condition, setCondition] = useState<boolean>(false);
     const { user, setAccount } = useOutletContext<IContext>();
     const navigate = useNavigate();
 
@@ -88,12 +91,27 @@ export const Settings = () => {
                                 Edit your profile information from the profile
                                 page. Your bio:{" "}
                             </p>
-                            <p className="mt-2 text-slate-200">
-                                {user.bio || "No bio yet"}
-                            </p>
+                            {user.bio ? (
+                                <button
+                                    onClick={() =>
+                                        setCondition((prev) => !prev)
+                                    }
+                                >
+                                    edit bio
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={() =>
+                                        setCondition((prev) => !prev)
+                                    }
+                                >
+                                    add bio
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
+                {condition && <BioAdd/>}
             </div>
         )
     );

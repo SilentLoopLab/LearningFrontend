@@ -1,3 +1,8 @@
 export const Posts = () => {
-    return <h1>Posts</h1>;
+    return (
+        <>
+            <h1>Add new Post</h1>
+            
+        </>
+    );
 };

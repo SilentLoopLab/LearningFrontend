@@ -8,6 +8,7 @@ import { Settings } from "../pages/protected/Settings/index";
 import { Posts } from "../pages/protected/posts";
 import { Followers } from "../pages/protected/followers";
 import { Followings } from "../pages/protected/followings";
+import { Account } from "../pages/protected/account/Account";
 
 export const routes = createBrowserRouter([
     {
@@ -28,6 +29,7 @@ export const routes = createBrowserRouter([
             { path: "posts", element: <Posts /> },
             { path: "followers", element: <Followers /> },
             { path: "followings", element: <Followings /> },
+            {path: ":username" , element: <Account/>}
         ],
     },
     { path: "*", element: <NotFound /> },

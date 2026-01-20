@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Axios } from "../../../../config/axios";
-import type { IAccount } from "../../../../types/utility";
-import { Link } from "react-router-dom";
+import type { IAccount, IContext } from "../../../../types/utility";
+import { Link, useOutletContext } from "react-router-dom";
 import { Image } from "./Image";
-import { useDebounce } from "../../../../helpers/useDEbounce";
+import { useDebounce } from "../../../../helpers/useDebounce";
 export const Search = () => {
     const [text, setText] = useState<string>("");
     const [users, setUsers] = useState<IAccount[]>();
     const delayedText = useDebounce<string>(text);
-
+    const { user } = useOutletContext<IContext>();
     useEffect(() => {
         if (!delayedText.trim()) {
             return;
@@ -38,29 +38,35 @@ export const Search = () => {
             </div>
             {users && users.length > 0 && (
                 <ul className="mt-3 w-full bg-slate-900/80 border border-slate-700 rounded-xl shadow-sm divide-y divide-slate-700 overflow-hidden">
-                    {users.map((user) => (
+                    {users.map((u) => (
                         <li
-                            key={user.id}
+                            key={u.id}
                             className="flex items-center gap-3 p-3 hover:bg-slate-800/60 cursor-pointer"
-                            onClick={() => setText(user.firstName)}
+                            onClick={() => setText(u.firstName)}
                         >
                             <Image
                                 className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-medium text-white"
-                                src={user.avatar}
+                                src={u.avatar}
                             />
 
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between">
                                     <div className="truncate">
                                         <div className="text-sm font-semibold text-slate-100 truncate">
-                                            {user.username}
+                                            {u.username}
                                         </div>
                                         <div className="text-xs text-slate-400 truncate">
-                                            {user.firstName} {user.lastName}
+                                            {u.firstName} {u.lastName}
                                         </div>
-                                        <Link to={"/profile/" + user.username}>
-                                            view profile
-                                        </Link>
+                                        {u.username !== user.username ? (
+                                            <Link to={"/profile/" + u.username}>
+                                                view profile
+                                            </Link>
+                                        ) : (
+                                            <Link to={"/profile"}>
+                                                view profile
+                                            </Link>
+                                        )}
                                     </div>
                                 </div>
                             </div>
