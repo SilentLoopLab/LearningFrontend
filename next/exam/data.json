@@ -1,50 +1,9 @@
 [
-  {},
   {
-    "firstName": "Alen",
-    "lastName": "Yeghyan",
-    "email": "Alen@mail.ru",
-    "password": "$2b$10$GEgjm8tMizxDoT9qc.NV4ur1KcbP4HJXiJY1Bxvrd7mentDKJ8sse",
-    "attempts": 0,
-    "clock": null
-  },
-  {
-    "firstName": "Poghos",
-    "lastName": "Poghosyan",
-    "email": "mailmail@mai.ru",
-    "password": "$2b$10$6.MKMYciHlGz3SYvaohBBukgkqysnVRzoa5tM5e5DWJ8ILcVW5oFm",
-    "attempts": 0,
-    "clock": null
-  },
-  {
-    "firstName": "Poghos",
-    "lastName": "Poghosyan",
-    "email": "mailmail@mai.r",
-    "password": "$2b$10$tb5Cr1TYyucBqjyF0BSYqOqXbXm.mrB/dv7BlYE.bEqI6V/3J7cu.",
-    "attempts": 0,
-    "clock": null
-  },
-  {
-    "firstName": "Poghos",
-    "lastName": "Poghosyan",
-    "email": "mailmail@mail.ru",
-    "password": "$2b$10$av8w0LUAX.W2KEJQDU8bpOhr8gimqqyFcyNgEcOy8Jva1cEUWZjcK",
-    "attempts": 0,
-    "clock": null
-  },
-  {
-    "firstName": "Poghos",
-    "lastName": "Poghosyan",
-    "email": "mailml@mail.ru",
-    "password": "$2b$10$yR.qrioBS7.Lg3Z9SonaM.i9oGGYB64dFtSSUDOfajecX/FEZaxt.",
-    "attempts": 0,
-    "clock": null
-  },
-  {
-    "firstName": "Poghos",
-    "lastName": "Petros",
-    "email": "gkjhsfdhsajk@mail.ru",
-    "password": "$2b$10$t4zvJrOhi5Hy5jb/VILL8OeMl2idyJ5MW6h2lqLWzZJxW7nlt.OQW",
+    "firstName": "Pedro",
+    "lastName": "Pascal",
+    "email": "PedroPascal@gmail.com",
+    "password": "$2b$10$XPyeAUg82Aw55I74SA.po.EclANOUO4zdMTb0DAY8md0lcOPMZRZS",
     "attempts": 0,
     "clock": null
   }

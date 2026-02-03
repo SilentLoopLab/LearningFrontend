@@ -20,15 +20,14 @@ export default function Login() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Login data:", formData);
         
         axios
-        .post('/api/login')
+        .post('/api/login', formData)
         .then(res => 
             console.log(res)
         )
         .catch(err => 
-            alert("Booo...")
+            alert(`Booo...\n ${err.message}` )
         )
     };
 
